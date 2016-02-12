@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+	<h:head>
+		<title>Tabela de Alunos</title>
+	</h:head>
+
+	<h:body>
+		
+		<h:form>
+			<h:dataTable value="#{alunoBean.alunos}" var="dados">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Código" />
+					</f:facet>
+					<h:outputText value="#{dados.id}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nome" />
+					</f:facet>
+					<h:outputText value="#{dados.nome}"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Data de Nascimento" />
+					</f:facet>
+					<h:outputText value="#{dados.dataN}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Curso" />
+					</f:facet>
+					<h:outputText value="#{dados.curso}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ações"/>
+					</f:facet>
+					<h:commandButton value="EDITAR" action="editar" actionListener="#{alunoBean.selecionarReg}"/>
+					<h:commandButton value="DELETAR" action="deletar" actionListener="#{alunoBean.selecionarReg}"></h:commandButton>
+				</h:column>
+				
+			</h:dataTable>
+			<br />
+			
+			<h:commandLink value="Cadastrar novo cliente" action="novo" actionListener="#{alunoBean.novoReg}"/>
+			
+		</h:form>
+		
+	</h:body>
+
+</html>
